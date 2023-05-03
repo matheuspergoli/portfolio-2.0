@@ -16,7 +16,7 @@ export const Card = (props: CardProps) => {
         <img
           draggable='false'
           className='block cursor-pointer rounded-md'
-          src='https://picsum.photos/seed/1/500/300'
+          src={props.image}
           alt='Project Image'
         />
       </button>
