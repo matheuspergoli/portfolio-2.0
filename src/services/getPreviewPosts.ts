@@ -4,24 +4,24 @@ const endpoint = 'https://graphql.datocms.com/'
 
 const query = gql`
   query {
-    allProjetos(orderBy: _createdAt_DESC, first: "9") {
+    allPosts {
       id
-      nome
-      link
-      repositorio
-      imagem {
+      slug
+      title
+      excerpt
+      coverImage {
         url
       }
     }
   }
 `
 
-export const getAllProjects = async () => {
+export const getPreviewPosts = async () => {
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
       'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + process.env.NEXT_PUBLIC_PORTFOLIO_KEY
+      Authorization: 'Bearer ' + process.env.NEXT_PUBLIC_BLOG_KEY
     }
   })
-  return (await graphQLClient.request(query)) as Projects
+  return (await graphQLClient.request(query)) as PreviewPosts
 }

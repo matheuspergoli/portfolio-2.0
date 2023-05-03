@@ -20,6 +20,11 @@ export const Header = () => {
       id: '3',
       title: 'Projetos',
       href: '/projetos'
+    },
+    {
+      id: '4',
+      title: 'Blog',
+      href: '/blog'
     }
   ]
 
