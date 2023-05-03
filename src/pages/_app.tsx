@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
         onExitComplete={() => window.scrollTo(0, 0)}>
         {isMounted ? <IntroPage /> : <Component key={componentKey} {...pageProps} />}
       </AnimatePresence>
-      <CursorAnimation />
+      {!isMounted && <CursorAnimation />}
     </AnimationCursorProvider>
   )
 }

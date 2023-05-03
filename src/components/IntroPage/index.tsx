@@ -15,7 +15,7 @@ export const IntroPage = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
         className='flex h-screen flex-col items-center justify-center bg-black-dark'>
-        <h1 className='text-gray-light'>
+        <h1 className='text-center text-gray-light'>
           <span className='text-4xl font-bold'>Matheus Pergoli</span> Portfólio
         </h1>
       </m.div>

@@ -41,6 +41,7 @@ export const CursorAnimation = () => {
       variants={variants as any}
       animate={cursorVariant}
       style={{
+        display: mousePosition.x === 0 && mousePosition.y === 0 ? 'none' : 'block',
         pointerEvents: 'none',
         zIndex: 9999,
         position: 'fixed',
