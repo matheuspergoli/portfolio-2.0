@@ -1,6 +1,5 @@
 import React from 'react'
 import * as Icon from '../../assets/icons'
-import { Hoverable } from '../../animations/Hoverable'
 
 export const SocialMediaLinks = () => {
   const links = [
@@ -25,20 +24,18 @@ export const SocialMediaLinks = () => {
   ]
 
   return (
-    <Hoverable>
-      <div className='flex w-fit flex-wrap items-center gap-5 text-gray-light'>
-        {links.map((link) => (
-          <a
-            key={link.id}
-            target='_blank'
-            rel='noopener noreferrer'
-            href={link.href}
-            className='flex items-center gap-2 rounded-md bg-zinc-900/90 px-3 py-2'>
-            {link.icon}
-            <span className='text-xl font-semibold'>{link.title}</span>
-          </a>
-        ))}
-      </div>
-    </Hoverable>
+    <div className='flex w-fit flex-wrap items-center gap-5 text-gray-light'>
+      {links.map((link) => (
+        <a
+          key={link.id}
+          target='_blank'
+          rel='noopener noreferrer'
+          href={link.href}
+          className='flex items-center gap-2 rounded-md bg-zinc-900/90 px-3 py-2 transition hover:bg-zinc-700/50'>
+          {link.icon}
+          <span className='text-xl font-semibold'>{link.title}</span>
+        </a>
+      ))}
+    </div>
   )
 }

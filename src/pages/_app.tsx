@@ -2,10 +2,8 @@ import React from 'react'
 import '../styles/globals.css'
 import { useRouter } from 'next/router'
 import type { AppProps } from 'next/app'
+import { IntroPage } from '../components'
 import { AnimatePresence } from 'framer-motion'
-import { IntroPage } from '../components/IntroPage'
-import { CursorAnimation } from '../animations/CursorAnimation'
-import { AnimationCursorProvider } from '../context/AnimationCursorContext'
 
 import 'swiper/css'
 
@@ -18,20 +16,17 @@ export default function App({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
     const timeout = setTimeout(() => {
       setIsMounted(false)
-    }, 2500)
+    }, 1500)
 
     return () => clearTimeout(timeout)
   }, [])
 
   return (
-    <AnimationCursorProvider>
-      <AnimatePresence
-        mode='wait'
-        initial={false}
-        onExitComplete={() => window.scrollTo(0, 0)}>
-        {isMounted ? <IntroPage /> : <Component key={componentKey} {...pageProps} />}
-      </AnimatePresence>
-      {!isMounted && <CursorAnimation />}
-    </AnimationCursorProvider>
+    <AnimatePresence
+      mode='wait'
+      initial={false}
+      onExitComplete={() => window.scrollTo(0, 0)}>
+      {isMounted ? <IntroPage /> : <Component key={componentKey} {...pageProps} />}
+    </AnimatePresence>
   )
 }

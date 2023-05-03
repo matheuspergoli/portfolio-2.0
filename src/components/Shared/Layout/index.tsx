@@ -1,6 +1,5 @@
 import React from 'react'
-import { Header } from '../../Header'
-import { Footer } from '../../Footer'
+import { Header, Footer } from '../../'
 import { motion as m, useIsPresent } from 'framer-motion'
 
 export const Layout = (props: { children: React.ReactNode }) => {

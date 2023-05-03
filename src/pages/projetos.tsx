@@ -1,12 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
 import { Fade } from 'react-awesome-reveal'
-import { Hoverable } from '../animations/Hoverable'
-import { Layout } from '../components/Shared/Layout'
-import { CardWithModal } from '../components/CardWithModal'
+import { Layout, CardWithModal } from '../components'
 
 export default function Projetos() {
-  const items = [
+  const projects = [
     {
       id: '1',
       title: 'Projeto 1',
@@ -53,11 +51,9 @@ export default function Projetos() {
       <Layout>
         <main>
           <Fade triggerOnce cascade damping={0.1}>
-            <Hoverable>
-              <h1 className='mb-10 w-fit text-3xl font-bold text-gray-light'>
-                Veja um pouco do meu trabalho!
-              </h1>
-            </Hoverable>
+            <h1 className='mb-10 w-fit text-3xl font-bold text-gray-light'>
+              Veja um pouco do meu trabalho!
+            </h1>
 
             <section className='mb-10 flex flex-col gap-2 rounded-md border border-black-medium p-5 text-gray-light'>
               <p>
@@ -73,7 +69,7 @@ export default function Projetos() {
             </section>
 
             <div className='grid grid-cols-1 place-items-center gap-5 md:grid-cols-2 md:place-items-start lg:grid-cols-3'>
-              {items.map((projeto) => (
+              {projects.map((projeto) => (
                 <CardWithModal key={projeto.id} {...projeto} />
               ))}
             </div>

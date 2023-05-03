@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { useOutsideAlerter } from '../../hooks/useOutsideAlerter'
+import { useOutsideAlerter } from '../../hooks'
 
 export const MenuMobile = () => {
   const wrapperRef = React.useRef(null)

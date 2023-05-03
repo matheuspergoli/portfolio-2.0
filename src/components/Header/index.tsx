@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { MenuMobile } from './MenuMobile'
 import * as Icon from '../../assets/icons'
 import { Fade } from 'react-awesome-reveal'
-import { Hoverable } from '../../animations/Hoverable'
 
 export const Header = () => {
   const links = [
@@ -30,14 +29,12 @@ export const Header = () => {
 
   return (
     <header className='container mx-auto mb-14 flex items-center justify-between border-b border-b-black-medium py-5 text-gray-light'>
-      <Hoverable>
-        <div className='flex items-center justify-center gap-3'>
-          <Icon.Code className='text-3xl' />
-          <Fade triggerOnce cascade damping={0.06} className='text-2xl font-semibold'>
-            Matheus P.
-          </Fade>
-        </div>
-      </Hoverable>
+      <div className='flex items-center justify-center gap-3'>
+        <Icon.Code className='text-3xl' />
+        <Fade triggerOnce cascade damping={0.06} className='text-2xl font-semibold'>
+          Matheus P.
+        </Fade>
+      </div>
       <nav className='relative flex gap-5'>
         <MenuMobile />
 

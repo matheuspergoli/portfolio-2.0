@@ -2,11 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { Fade } from 'react-awesome-reveal'
-import { Skills } from '../components/Skills'
-import { Hoverable } from '../animations/Hoverable'
-import { Layout } from '../components/Shared/Layout'
-import { CardWithModal } from '../components/CardWithModal'
-import { SocialMediaLinks } from '../components/SocialMediaLinks'
+import { Layout, Skills, CardWithModal, SocialMediaLinks } from '../components'
 
 export default function Home() {
   const projects = [
@@ -38,11 +34,9 @@ export default function Home() {
       <Layout>
         <main>
           <Fade triggerOnce cascade damping={0.1}>
-            <Hoverable>
-              <h1 className='w-fit text-3xl font-bold text-gray-light'>
-                Bem vindo ao meu Portfólio!
-              </h1>
-            </Hoverable>
+            <h1 className='w-fit text-3xl font-bold text-gray-light'>
+              Bem vindo ao meu Portfólio!
+            </h1>
 
             <p className='mb-5 text-xl text-gray-light'>
               Desenvolvedor Fullstack Javascript Júnior com foco em NextJS e NodeJS.
@@ -67,26 +61,20 @@ export default function Home() {
             </section>
 
             <section className='mb-10 flex flex-col text-gray-light'>
-              <Hoverable>
-                <h2 className='mb-3 w-fit text-2xl font-bold'>
-                  Tecnologias que mais utilizo
-                </h2>
-              </Hoverable>
+              <h2 className='mb-3 w-fit text-2xl font-bold'>
+                Tecnologias que mais utilizo
+              </h2>
 
               <Skills />
             </section>
 
             <section>
               <div className='mb-3 flex items-center justify-between text-gray-light'>
-                <Hoverable>
-                  <h2 className='text-2xl font-bold'>Projetos recentes</h2>
-                </Hoverable>
+                <h2 className='text-2xl font-bold'>Projetos recentes</h2>
 
-                <Hoverable>
-                  <Link href='/projetos' className='font-semibold'>
-                    Ver mais
-                  </Link>
-                </Hoverable>
+                <Link href='/projetos' className='font-semibold'>
+                  Ver mais
+                </Link>
               </div>
 
               <div className='grid grid-cols-1 place-items-center gap-5 sm:grid-cols-2 lg:grid-cols-3'>

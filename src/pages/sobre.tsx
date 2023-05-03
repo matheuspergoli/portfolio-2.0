@@ -1,22 +1,18 @@
 import React from 'react'
 import Head from 'next/head'
 import { Fade } from 'react-awesome-reveal'
-import { Hoverable } from '../animations/Hoverable'
-import { Layout } from '../components/Shared/Layout'
-import { SocialMediaLinks } from '../components/SocialMediaLinks'
+import { Layout, SocialMediaLinks } from '../components'
 
 export default function About() {
   return (
     <>
       <Head>
-        <title>About</title>
+        <title>Sobre</title>
       </Head>
       <Layout>
         <main className='flex flex-col text-gray-light'>
           <Fade triggerOnce cascade damping={0.1}>
-            <Hoverable>
-              <h1 className='mb-3 w-fit text-3xl font-bold'>Quem sou eu?</h1>
-            </Hoverable>
+            <h1 className='mb-3 w-fit text-3xl font-bold'>Quem sou eu?</h1>
 
             <section className='mb-10 flex flex-col gap-5 rounded-md border border-black-medium p-5'>
               <p className='text-xl'>
@@ -58,9 +54,7 @@ export default function About() {
               </p>
             </section>
 
-            <Hoverable>
-              <h2 className='mb-3 w-fit text-3xl font-bold'>Como tudo começou?</h2>
-            </Hoverable>
+            <h2 className='mb-3 w-fit text-3xl font-bold'>Como tudo começou?</h2>
 
             <section className='mb-10 flex flex-col gap-5 rounded-md border border-black-medium p-5'>
               <p className='text-xl'>
@@ -83,11 +77,7 @@ export default function About() {
               </p>
             </section>
 
-            <Hoverable>
-              <h2 className='mb-3 w-fit text-3xl font-bold'>
-                O que faço no tempo livre?
-              </h2>
-            </Hoverable>
+            <h2 className='mb-3 w-fit text-3xl font-bold'>O que faço no tempo livre?</h2>
 
             <section className='mb-10 flex flex-col gap-5 rounded-md border border-black-medium p-5'>
               <p className='text-xl'>
@@ -109,9 +99,7 @@ export default function About() {
               </p>
             </section>
 
-            <Hoverable>
-              <h2 className='mb-5 w-fit text-3xl font-bold'>Entre em contato comigo!</h2>
-            </Hoverable>
+            <h2 className='mb-5 w-fit text-3xl font-bold'>Entre em contato comigo!</h2>
 
             <SocialMediaLinks />
           </Fade>

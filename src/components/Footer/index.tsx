@@ -1,6 +1,5 @@
 import React from 'react'
 import * as Icon from '../../assets/icons'
-import { Hoverable } from '../../animations/Hoverable'
 import { Fade } from 'react-awesome-reveal'
 
 export const Footer = () => {
@@ -33,11 +32,9 @@ export const Footer = () => {
         </div>
         <div className='flex items-center gap-5'>
           {links.map((link) => (
-            <Hoverable key={link.id}>
-              <a target='_blank' rel='noopener noreferrer' href={link.href}>
-                {link.icon}
-              </a>
-            </Hoverable>
+            <a target='_blank' rel='noopener noreferrer' href={link.href}>
+              {link.icon}
+            </a>
           ))}
         </div>
       </footer>
