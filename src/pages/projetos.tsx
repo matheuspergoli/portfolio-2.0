@@ -1,47 +1,26 @@
 import React from 'react'
 import Head from 'next/head'
+import { GetStaticProps } from 'next'
 import { Fade } from 'react-awesome-reveal'
-import { Layout, CardWithModal } from '../components'
+import { Layout, Card } from '../components'
+import { getAllProjects } from '../services'
+import { QueryClient, useQuery, dehydrate } from 'react-query'
+
+export const getStaticProps: GetStaticProps = async () => {
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery('projects', getAllProjects)
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient)
+    },
+    revalidate: 1
+  }
+}
 
 export default function Projetos() {
-  const projects = [
-    {
-      id: '1',
-      title: 'Projeto 1',
-      subtitle: 'Subtitle 1',
-      stack: ['HTML', 'CSS', 'JavaScript']
-    },
-    {
-      id: '2',
-      title: 'Projeto 2',
-      subtitle: 'Subtitle 2',
-      stack: ['HTML', 'CSS', 'JavaScript']
-    },
-    {
-      id: '3',
-      title: 'Projeto 3',
-      subtitle: 'Subtitle 3',
-      stack: ['React', 'Next', 'NodeJS', 'TypeScript']
-    },
-    {
-      id: '4',
-      title: 'Projeto 4',
-      subtitle: 'Subtitle 4',
-      stack: ['React', 'Next', 'NodeJS', 'MongoDB']
-    },
-    {
-      id: '5',
-      title: 'Projeto 5',
-      subtitle: 'Subtitle 5',
-      stack: ['Vue', 'SCSS', 'NodeJS']
-    },
-    {
-      id: '6',
-      title: 'Projeto 6',
-      subtitle: 'Subtitle 6',
-      stack: ['React', 'Next', 'NodeJS', 'TypeScript']
-    }
-  ]
+  const { data } = useQuery({ queryKey: 'projects', queryFn: getAllProjects })
 
   return (
     <>
@@ -69,8 +48,14 @@ export default function Projetos() {
             </section>
 
             <div className='grid grid-cols-1 place-items-center gap-5 md:grid-cols-2 md:place-items-start lg:grid-cols-3'>
-              {projects.map((projeto) => (
-                <CardWithModal key={projeto.id} {...projeto} />
+              {data?.allProjetos.map((project) => (
+                <Card
+                  key={project.id}
+                  image={project.imagem.url}
+                  link={project.link}
+                  repoUrl={project.repositorio}
+                  title={project.nome}
+                />
               ))}
             </div>
           </Fade>

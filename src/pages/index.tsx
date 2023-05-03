@@ -1,30 +1,29 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import { GetStaticProps } from 'next'
 import { Fade } from 'react-awesome-reveal'
-import { Layout, Skills, CardWithModal, SocialMediaLinks } from '../components'
+import { getAllProjects } from '../services'
+import { QueryClient, useQuery, dehydrate } from 'react-query'
+import { Layout, Skills, Card, SocialMediaLinks } from '../components'
+
+export const getStaticProps: GetStaticProps = async () => {
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery('projects', getAllProjects)
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient)
+    },
+    revalidate: 1
+  }
+}
 
 export default function Home() {
-  const projects = [
-    {
-      id: '1',
-      title: 'Projeto 1',
-      subtitle: 'Subtitle 1',
-      stack: ['HTML', 'CSS', 'JavaScript']
-    },
-    {
-      id: '2',
-      title: 'Projeto 2',
-      subtitle: 'Subtitle 2',
-      stack: ['HTML', 'CSS', 'JavaScript']
-    },
-    {
-      id: '3',
-      title: 'Projeto 3',
-      subtitle: 'Subtitle 3',
-      stack: ['React', 'Next', 'NodeJS', 'TypeScript']
-    }
-  ]
+  const { data } = useQuery({ queryKey: 'projects', queryFn: getAllProjects })
+
+  const firstThreeProjects = data?.allProjetos.slice(0, 3)
 
   return (
     <>
@@ -78,8 +77,14 @@ export default function Home() {
               </div>
 
               <div className='grid grid-cols-1 place-items-center gap-5 sm:grid-cols-2 lg:grid-cols-3'>
-                {projects.map((project) => (
-                  <CardWithModal key={project.id} {...project} />
+                {firstThreeProjects?.map((project) => (
+                  <Card
+                    key={project.id}
+                    image={project.imagem.url}
+                    link={project.link}
+                    repoUrl={project.repositorio}
+                    title={project.nome}
+                  />
                 ))}
               </div>
             </section>

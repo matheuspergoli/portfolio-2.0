@@ -22,7 +22,7 @@ export const Layout = (props: { children: React.ReactNode }) => {
         transition={{ duration: 0.3 }}>
         <Header />
         {props.children}
-        {/* <Footer /> */}
+        <Footer />
       </m.div>
     </>
   )

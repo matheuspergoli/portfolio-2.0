@@ -32,7 +32,7 @@ export const Footer = () => {
         </div>
         <div className='flex items-center gap-5'>
           {links.map((link) => (
-            <a target='_blank' rel='noopener noreferrer' href={link.href}>
+            <a key={link.id} target='_blank' rel='noopener noreferrer' href={link.href}>
               {link.icon}
             </a>
           ))}
