@@ -4,7 +4,7 @@ const endpoint = 'https://graphql.datocms.com/'
 
 const query = gql`
   query {
-    allProjetos(orderBy: _createdAt_DESC, first: "9") {
+    allProjetos(orderBy: _createdAt_DESC, first: "35") {
       id
       nome
       link
