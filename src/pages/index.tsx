@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { GetStaticProps } from 'next'
+import { type GetStaticProps } from 'next'
 import { Fade } from 'react-awesome-reveal'
 import { getAllProjects } from '../services'
 import { QueryClient, useQuery, dehydrate } from 'react-query'

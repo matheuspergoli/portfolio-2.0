@@ -16,12 +16,12 @@ const query = gql`
   }
 `
 
-export const getAllProjects = async () => {
+export const getAllProjects = async (): Promise<Projects> => {
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + process.env.NEXT_PUBLIC_PORTFOLIO_KEY
     }
   })
-  return (await graphQLClient.request(query)) as Projects
+  return await graphQLClient.request(query)
 }

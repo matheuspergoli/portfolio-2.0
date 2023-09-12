@@ -6,6 +6,7 @@ interface TextCursorProps {
   onMouseLeave: () => void
 }
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export const AnimationCursorContext = React.createContext({} as TextCursorProps)
 
 export const AnimationCursorProvider = (props: { children: React.ReactNode }) => {

@@ -29,7 +29,7 @@ export const Header = () => {
   ]
 
   function playSound() {
-    new Audio('/interface-click.wav').play()
+    void new Audio('/interface-click.wav').play()
   }
 
   return (

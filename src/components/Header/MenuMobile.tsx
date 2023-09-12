@@ -26,7 +26,7 @@ export const MenuMobile = () => {
   }, [isMobileOpen])
 
   function playSound() {
-    new Audio('/interface-click.wav').play()
+    void new Audio('/interface-click.wav').play()
   }
 
   const links = [

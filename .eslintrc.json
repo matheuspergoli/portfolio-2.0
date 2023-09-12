@@ -6,8 +6,17 @@
     "plugin:storybook/recommended",
     "plugin:react-hooks/recommended"
   ],
+  "globals": {
+    "React": "writable"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "no-tabs": "off",
+    "@next/next/no-img-element": "off",
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/triple-slash-reference": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",

@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { GetStaticProps } from 'next'
+import { type GetStaticProps } from 'next'
 import { Fade } from 'react-awesome-reveal'
 import { Layout, Card } from '../components'
 import { getAllProjects } from '../services'

@@ -38,7 +38,7 @@ interface PreviewPost {
 }
 
 interface PreviewPosts {
-  allPosts: Array<PreviewPost>
+  allPosts: PreviewPost[]
 }
 
 interface PostSlug {
@@ -47,5 +47,5 @@ interface PostSlug {
 }
 
 interface PostSlugs {
-  allPosts: Array<PostSlug>
+  allPosts: PostSlug[]
 }

@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
       setIsMounted(false)
     }, 1500)
 
-    return () => clearTimeout(timeout)
+    return () => { clearTimeout(timeout) }
   }, [])
 
   return (
@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <AnimatePresence
           mode='wait'
           initial={false}
-          onExitComplete={() => window.scrollTo(0, 0)}>
+          onExitComplete={() => { window.scrollTo(0, 0) }}>
           {isMounted ? <IntroPage /> : <Component key={componentKey} {...pageProps} />}
         </AnimatePresence>
       </Hydrate>

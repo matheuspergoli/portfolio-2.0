@@ -24,13 +24,13 @@ export const Card = (props: CardProps) => {
         <a
           target='_blank'
           href={props.repoUrl}
-          className='flex grow items-center justify-center gap-3 rounded-md border border-black-medium bg-black-dark/70 px-3 py-2 transition hover:bg-zinc-800/50'>
+          className='flex grow items-center justify-center gap-3 rounded-md border border-black-medium bg-black-dark/70 px-3 py-2 transition hover:bg-zinc-800/50' rel="noreferrer">
           <Icon.Github className='text-2xl' /> Github
         </a>
         <a
           target='_blank'
           href={props.link}
-          className='flex grow items-center justify-center gap-3 rounded-md border border-black-medium bg-black-dark/70 px-3 py-2 transition hover:bg-zinc-800/50'>
+          className='flex grow items-center justify-center gap-3 rounded-md border border-black-medium bg-black-dark/70 px-3 py-2 transition hover:bg-zinc-800/50' rel="noreferrer">
           <Icon.Deploy className='text-2xl text-gray-light' /> Site
         </a>
       </div>

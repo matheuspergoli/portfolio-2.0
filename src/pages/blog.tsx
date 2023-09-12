@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { GetStaticProps } from 'next'
+import { type GetStaticProps } from 'next'
 import { Fade } from 'react-awesome-reveal'
 import { getPreviewPosts } from '../services'
 import { Layout, BlogCard } from '../components'

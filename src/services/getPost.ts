@@ -24,12 +24,12 @@ const query = gql`
   }
 `
 
-export const getPost = async (variables: string) => {
+export const getPost = async (variables: string): Promise<Post> => {
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + process.env.NEXT_PUBLIC_BLOG_KEY
     }
   })
-  return (await graphQLClient.request(query, { eq: variables })) as Post
+  return await graphQLClient.request(query, { eq: variables })
 }

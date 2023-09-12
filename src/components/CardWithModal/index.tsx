@@ -15,7 +15,7 @@ export const CardWithModal = (props: CardWithModalProps) => {
   const dialogRef = React.useRef<HTMLDialogElement | null>(null)
   const [selectedId, setSelectedId] = React.useState<null | string>(null)
 
-  useOutsideAlerter(dialogRef, () => setSelectedId(null))
+  useOutsideAlerter(dialogRef, () => { setSelectedId(null) })
 
   return (
     <>
@@ -25,7 +25,7 @@ export const CardWithModal = (props: CardWithModalProps) => {
         layoutId={props.id}>
         <m.button
           whileHover={{ scale: 1.1, transition: { duration: 0.3 }, rotate: 90 }}
-          onClick={() => setSelectedId(props.id)}
+          onClick={() => { setSelectedId(props.id) }}
           className='absolute right-0 top-0 p-3 text-gray-light'>
           <Icon.Expand className='text-2xl' />
         </m.button>
@@ -34,7 +34,7 @@ export const CardWithModal = (props: CardWithModalProps) => {
         <button>
           <img
             draggable='false'
-            onClick={() => setSelectedId(props.id)}
+            onClick={() => { setSelectedId(props.id) }}
             className='block cursor-pointer rounded-md'
             src='https://picsum.photos/seed/1/500/300'
             alt='Project Image'
@@ -109,7 +109,7 @@ export const CardWithModal = (props: CardWithModalProps) => {
               </div>
               <button
                 className='absolute right-5 top-0 mx-auto mt-5 w-fit rounded-md p-2 text-3xl text-gray-light transition hover:bg-black-dark'
-                onClick={() => setSelectedId(null)}>
+                onClick={() => { setSelectedId(null) }}>
                 <Icon.Close />
               </button>
             </m.dialog>

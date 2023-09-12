@@ -3,19 +3,19 @@ import { StructuredText } from 'react-datocms'
 import { BlogCard, Layout } from '../../components'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { getPreviewPosts, getPostSlugs, getPost } from '../../services'
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
+import { type GetStaticPaths, type GetStaticProps, type GetStaticPropsContext } from 'next'
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const queryClient = new QueryClient()
   const id = context?.params?.id as string
 
-  await queryClient.prefetchQuery(['post', id], () => getPost(id))
+  await queryClient.prefetchQuery(['post', id], async () => await getPost(id))
   await queryClient.prefetchQuery(['posts'], getPreviewPosts)
 
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
-      id: id
+      id
     },
     revalidate: 1
   }
@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export default function PostPage(props: { id: string }) {
   const { data } = useQuery({
     queryKey: ['post', props.id],
-    queryFn: () => getPost(props.id)
+    queryFn: async () => await getPost(props.id)
   })
   const { data: morePosts } = useQuery({ queryKey: ['posts'], queryFn: getPreviewPosts })
 

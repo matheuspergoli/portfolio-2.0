@@ -16,12 +16,12 @@ const query = gql`
   }
 `
 
-export const getPreviewPosts = async () => {
+export const getPreviewPosts = async (): Promise<PreviewPosts> => {
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + process.env.NEXT_PUBLIC_BLOG_KEY
     }
   })
-  return (await graphQLClient.request(query)) as PreviewPosts
+  return await graphQLClient.request(query)
 }
